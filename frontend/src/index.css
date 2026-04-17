@@ -35,3 +35,33 @@ body {
 .project-image-placeholder {
   @apply aspect-[16/10] w-full bg-cardlite border-2 border-dashed border-borderlite rounded-xl flex items-center justify-center text-txtmuted transition-all duration-300 hover:border-accent hover:bg-indigo-50/50 hover:shadow-inner;
 }
+
+
+@theme {
+  /* ... your existing color variables ... */
+
+  /* Custom Animations/Effects */
+  --animate-float: float 6s ease-in-out infinite;
+  
+  /* NEW: Auto-scrolling image animation */
+  --animate-scroll-pan: scroll-pan 12s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* 0-10%: Start at top, fade in.
+    15-80%: Smoothly scroll to bottom.
+    85-90%: Hold at bottom.
+    95-100%: Fade out to white, snap to top seamlessly.
+  */
+  @keyframes scroll-pan {
+    0%, 5% { object-position: top; opacity: 0; }
+    15% { opacity: 1; }
+    80%, 85% { object-position: bottom; opacity: 1; }
+    95%, 100% { opacity: 0; object-position: bottom; }
+  }
+}
+
+/* ... rest of your index.css stays the same ... */
