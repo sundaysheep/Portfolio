@@ -1,5 +1,7 @@
 // frontend/src/App.jsx
 import React from 'react';
+import climateThumb from './assets/clima.png';
+import reviveThumb from './assets/revive.png';
 
 function App() {
   return (
@@ -83,12 +85,24 @@ function App() {
 
             {/* Image Placeholder Container (Right on desktop) */}
             <div className="md:col-span-6 order-first md:order-last">
-              <div className="project-image-placeholder relative group overflow-hidden">
-                <span className="font-medium text-sm group-hover:scale-110 transition-transform">
-                  ClimaMetrics Screenshot (Coming Soon)
-                </span>
-                {/* Subtle dynamic overlay on hover */}
-                <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              {/* Outer container: Handles hover pop, slight brighten, and rounded corners */}
+              <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-white border border-borderlite shadow-sm transition-all duration-500 hover:scale-[1.02] hover:brightness-105 group">
+                
+                {/* Scrolling Image */}
+                <img 
+                  src={climateThumb} 
+                  alt="ClimaMetrics Homepage Screenshot" 
+                  className="w-full h-full object-cover object-top animate-scroll-pan"
+                />
+
+                {/* Slight White Vignette Overlay (Always visible) */}
+                <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_50px_rgba(255,255,255,0.8)]"></div>
+                
+                {/* Heavy Bottom White Gradient (Fades to white at the bottom) */}
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none"></div>
+                
+                {/* Subtle Interactive Accent Overlay on Hover */}
+                <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-colors duration-300 pointer-events-none"></div>
               </div>
             </div>
           </div>
@@ -97,11 +111,23 @@ function App() {
           <div className="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
             {/* Image Placeholder Container (Left on desktop, alternates) */}
             <div className="md:col-span-6">
-              <div className="project-image-placeholder relative group overflow-hidden">
-                <span className="font-medium text-sm group-hover:scale-110 transition-transform">
-                  Revive Studio Screenshot (Coming Soon)
-                </span>
-                <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden bg-white border border-borderlite shadow-sm transition-all duration-500 hover:scale-[1.02] hover:brightness-105 group">
+                
+                {/* Scrolling Image */}
+                <img 
+                  src={reviveThumb} 
+                  alt="Revive Makeup Studio Screenshot" 
+                  className="w-full h-full object-cover object-top animate-scroll-pan"
+                />
+
+                {/* Slight White Vignette Overlay */}
+                <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_50px_rgba(255,255,255,0.8)]"></div>
+                
+                {/* Heavy Bottom White Gradient */}
+                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none"></div>
+                
+                {/* Subtle Interactive Accent Overlay on Hover */}
+                <div className="absolute inset-0 bg-accent/0 group-hover:bg-accent/5 transition-colors duration-300 pointer-events-none"></div>
               </div>
             </div>
 
